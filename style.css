@@ -1,0 +1,61 @@
+ *{/*evrensel seçici*/
+ margin:0;
+ padding:0;
+ }
+ body{
+	 width:100%;
+	 height:1024px;
+	 background-color:red;
+ }
+ div{
+	 background-color:#35424a;
+ }
+ .container{
+	 background-color:red;
+     width:100%;
+	 height:500px;
+	 
+ }
+ #ustbaslik h2{
+	 float:left;
+	 color:#red;
+	 margin-left:145px;
+ }
+ /* li nin içindeki tüm a ları seçiyor*/
+ li a {
+	 color:blue;
+ }
+ /* li nin içindeki direkt a varsa seçiyor*/
+ li>a{
+	 color:blue;
+ }
+ /* + sonraki demek anlamına gelir*/
+ #ustbaslik+ul{
+	 color:blue;
+ }
+ #liste li a{
+	 color:blue;
+ }
+ /* özellik seçiciler*/
+ a{
+	 
+ }
+ a[title="YBS"]{
+	 color:blue;
+}
+input[type="text"]{
+
+}
+ p:first-line{
+	 font-size:35px;
+ }
+ p:first-letter{
+	 font-size:72px
+ }
+ #ustbaslik:before{
+	 content:"deneme";
+	 color:white;
+ }
+ #ustbaslik:after{
+	 content:"sonuna";
+ }
