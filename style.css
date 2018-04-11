@@ -59,3 +59,16 @@ input[type="text"]{
  #ustbaslik:after{
 	 content:"sonuna";
  }
+ #liste li a{
+	 text-decoration:none;
+ }
+ #liste li a:hover{
+	 color:blue;
+ }
+  #liste li a:visited{
+	 color:white;
+ }
+  #liste li a:active{
+	 color:green; !important
+ }
+ 
