@@ -4,6 +4,8 @@ from PyQt4.QtCore import*
 uyg=QApplication(sys.argv)
 pencere=QWidget()
 izgara=QGridLayout()
+
+
 metin=QLabel("GideceğinizYol")
 Yakit=QLabel("yakıt litre")
 kmyakit=QLabel("100 km de tüketilen yakıt")
@@ -23,7 +25,7 @@ izgara.addWidget(Yol,0,1)
 izgara.addWidget(Yakit2,1,1)
 izgara.addWidget(kmyak,2,1)
 
-izgara.addWidget(buttonKirmizi,5,1)
+izgara.addWidget(buttonKirmizi,4,0,1,2)
 pencere.setFixedSize(300,200)
 pencere.setLayout(izgara)
 pencere.show()
