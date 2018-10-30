@@ -1,0 +1,95 @@
+from PyQt4.QtCore import *
+from PyQt4.QtGui import *
+import sys
+
+class anaPencere(QMainWindow):
+    def __init__(self,p=None):
+        super(anaPencere,self).__init__(p)
+        self.setWindowTitle("Logo Muhasebe Uygulaması")
+        self.menuEkleme()
+        self.form_widget=formWidget(self)
+        self.setCentralWidget(self.form_widget)
+        
+    def menuEkleme(self):
+        menubar=self.menuBar()
+        stokMenu=menubar.addMenu('&Stok')
+        self.setGeometry(200,200,800,400)
+        stokEkle=stokMenu.addAction("&Stok Ekle")
+        stokCikar=stokMenu.addAction("&Stok Çıkar")
+        stokGoster=stokMenu.addAction("&Stok Göster")
+        siparisMenu=menubar.addMenu('&Sipariş')
+        faturaMenu=menubar.addMenu('&Fatura')
+        cariMenu=menubar.addMenu("&Cari Hesap")
+        kasaMenu=menubar.addMenu("&Kasa")
+        bankaMenu=menubar.addMenu("&Banka")
+        cekMenu=menubar.addMenu("&Çek/Senet")
+        topluMenu=menubar.addMenu("&Toplu İşlemler")
+        sysMenu=menubar.addMenu("&Sistem İşlemleri")
+
+class formWidget(QWidget):
+    def __init__(self,p=None):
+        super(formWidget,self).__init__(p)
+        frame=QFrame()
+        frame.setFrameStyle(QFrame.Panel)
+        frame2=QFrame()
+        frame2.setFrameStyle(QFrame.Panel)
+        
+        fisWidget=QWidget()
+        fisNo=QLineEdit()
+        fisTarih=QLineEdit()
+        fisGetir=QPushButton()
+        formLayout=QFormLayout()
+        formLayout.addRow("Fiş No:",fisNo)
+        formLayout.addRow("Fiş Tarih:",fisTarih)
+        fisWidget.setLayout(formLayout)
+        fisWidget.show()
+        
+        dockWidget=QDockWidget("Fiş no'ya göre göster",self)
+        dockWidget.setFeatures(dockWidget.NoDockWidgetFeatures)
+        dockWidget.setWidget(fisWidget)
+        
+        izgara=QGridLayout()
+        izgara.addWidget(dockWidget)
+        frame.setLayout(izgara)
+        
+        yatay=QHBoxLayout()
+        yatay.addWidget(frame)
+        yatay.addWidget(frame2)
+        yatay.setAlignment(Qt.AlignLeft)
+
+        ozelKodWidget=QWidget()
+        ozelKod=QLineEdit()
+        yetkiKod=QLineEdit()
+        ozelKodGoster=QPushButton("Göster")
+        formLayout2=QFormLayout()
+        formLayout2.addRow("Özel Kod:",ozelKod)
+        formLayout2.addRow("Yetki Kod:",yetkiKod)
+        formLayout2.addRow(ozelKodGoster)
+        ozelKodWidget.setLayout(formLayout2)
+        ozelKodWidget.show()
+        dockWidget2=QDockWidget("Özel Koda Göre Göster",self)
+        dockWidget2.setFeatures(dockWidget.NoDockWidgetFeatures)
+        dockWidget2.setWidget(ozelKodWidget)
+        izgara2=QGridLayout()
+        izgara2.addWidget(dockWidget2)
+        frame2.setLayout(izgara2)
+
+        izgara3=QGridLayout()
+        tablo=QTableWidget()
+        aciklama=QLineEdit()
+        tablo.resize(600,250)
+        tablo.setColumnCount(4)
+        tablo.setRowCount(4)
+        tablo.setHorizontalHeaderLabels(['Hesap Kodu','Hesap Adı','Stok Kodu','Stok Adı'])
+        izgara3.addWidget(tablo,0,0)
+        izgara3.addWidget(aciklama,1,0)
+        tablo.show()
+        dikey=QVBoxLayout()
+        dikey.addLayout(yatay)
+        dikey.addLayout(izgara3)
+        self.setLayout(dikey)
+        self.setGeometry(0,0,800,200)
+        
+app=QApplication(sys.argv)
+ana=anaPencere()
+ana.show()
