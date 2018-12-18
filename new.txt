@@ -1,0 +1,5 @@
+ocak,1500
+şubat,1200
+mart,1300
+nisan,1600
+mayıs,1800
